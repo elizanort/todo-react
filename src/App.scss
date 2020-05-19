@@ -4,10 +4,10 @@ $fontcolor-primary: #393939;
 $backgroundcolor-main: #FFFFFF;
 
 
-@font-face{
-    font-family: 'Americana';
-    src: local('Americana') url(./fonts/Americana.otf) format(opentype);
-}
+// @font-face{
+//     font-family: 'Americana';
+//     src: local('Americana') url(./fonts/Americana.otf) format(opentype);
+// }
 
 @mixin headertext {
     font-family: 'Raleway', sans-serif;
