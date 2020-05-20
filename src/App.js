@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.scss";
 import Todo from "./components/Todo";
-// import profileimg from "./imgs/profile.svg";
+import profileimg from "./imgs/profile.svg";
 import Sidebar from './components/Sidebar';
 
 const userInformation = 
   {
     name: "Elizabeth Nortman",
-    picture: require("./imgs/profile.svg"),
+    picture: profileimg,
 
   }
 ;
