@@ -4,13 +4,7 @@ import Todo from "./components/Todo";
 import profileimg from "./imgs/profile.svg";
 import Sidebar from './components/Sidebar';
 
-const userInformation = 
-  {
-    name: "Elizabeth Nortman",
-    picture: profileimg,
 
-  }
-;
 
 // const userInfo = userInformation.map(function (userInformation) {
 //   return (
@@ -28,85 +22,85 @@ const userInformation =
 //   );
 // });
 
-const todos = [
-  {
-    id: 1,
-    listName: "Todo List",
-    title: "Workout",
-    completed: false,
-  },
-  {
-    id: 2,
-    listName: "Todo list",
-    title: "Complete ",
-    completed: false,
-  },
-  {
-    id: 3,
-    listName: "Grocery List",
-    title: "Grapes",
-    completed: false,
-  },
-  {
-    id: 4,
-    listName: "Grocery List",
-    title: "Bread",
-    completed: false,
-  },
-  {
-    id: 5,
-    listName: "Todo list",
-    title: "Write a thank you letter to dad",
-    completed: false,
-  },
+class App extends React.Component{
+  state = [
+    {
+      id: 1,
+      listName: "Todo List",
+      title: "Workout",
+      completed: false,
+    },
+    {
+      id: 2,
+      listName: "Todo list",
+      title: "Complete ",
+      completed: false,
+    },
+    {
+      id: 3,
+      listName: "Grocery List",
+      title: "Grapes",
+      completed: false,
+    },
+    {
+      id: 4,
+      listName: "Grocery List",
+      title: "Bread",
+      completed: false,
+    },
+    {
+      id: 5,
+      listName: "Todo list",
+      title: "Write a thank you letter to dad",
+      completed: false,
+    },
+  
+    {
+      id: 6,
+      listName: "Application List",
+      title: "UXR Google",
+      completed: false,
+    },
+  ];
 
-  {
-    id: 6,
-    listName: "Application List",
-    title: "UXR Google",
-    completed: false,
-  },
-];
+  state = 
+    {
+      name: "Elizabeth Nortman",
+      picture: profileimg,
 
-// const todoItem = todos.map(function (todoItem){
-//   return (
-//     <li className="todolist_listitems">
-//       <input type="checkbox"></input>
-//       <p>{todoItem.title}</p>
-//     </li>
-//   );
-// })
+    };
 
-function App() {
-  return (
-    <body className="page_container">
-    <Sidebar userInformation={userInformation}/>
+  render (){
+    return(
+      <body className="page_container">
+      <Sidebar userInformation={this.state.userInformation}/>
 
-      <div className="main_container">
-        <div className="header">
-          <h1 className="header_h1">ToDo List</h1>
-        </div>
+        <div className="main_container">
+          <div className="header">
+            <h1 className="header_h1">ToDo List</h1>
+          </div>
 
-        <div className="todolist">
-          <input
-            type="text"
-            className="todolist_input"
-            placeholder="Add new item"
-          ></input>
-          <button type="submit" className="todolist_submitbutton">
-            Add
-          </button>
-          <div>
-            <ul>
-              {todos.map((todoItem, index) => (
-                <Todo todoItem={todoItem} key={index} />
-              ))}
-            </ul>
+          <div className="todolist">
+            <input
+              type="text"
+              className="todolist_input"
+              placeholder="Add new item"
+            ></input>
+            <button type="submit" className="todolist_submitbutton">
+              Add
+            </button>
+            <div>
+              <ul>
+                {this.state.map((todoItem, index) => (
+                  <Todo todoItem={todoItem} key={index} />
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </body>
-  );
+      </body>
+    )
+  };
 }
 
 export default App;
