@@ -4,13 +4,13 @@ import Todo from "./components/Todo";
 // import profileimg from "./imgs/profile.svg";
 import Sidebar from './components/Sidebar';
 
-const userInformation = [
+const userInformation = 
   {
     name: "Elizabeth Nortman",
-    // picture: { profileimg },
+    picture: require("./imgs/profile.svg"),
 
   }
-];
+;
 
 // const userInfo = userInformation.map(function (userInformation) {
 //   return (
@@ -80,7 +80,7 @@ const todos = [
 function App() {
   return (
     <body className="page_container">
-    <Sidebar />
+    <Sidebar userInformation={userInformation}/>
 
       <div className="main_container">
         <div className="header">

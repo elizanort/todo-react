@@ -28,13 +28,11 @@ function Sidebar(props) {
         </div>
 
         <div className="username">
-            {/* <img src={props.userInformation.picture} className="profile_img" alt="profile" />
-             */}
-
+            <img src={props.userInformation.picture} className="profile_img" alt="profile" />
+            
             <a href="www.google.com" className="username_link">
-            Elizabeth Nortman
+             {props.userInformation.name}
             </a>
-
 
         </div>
     </div>
