@@ -29,31 +29,31 @@ class App extends React.Component{
         id: 1,
         listName: "Todo List",
         title: "Workout",
-        completed: false,
+        isChecked: false,
       },
       {
         id: 2,
         listName: "Todo list",
         title: "Complete ",
-        completed: false,
+        isChecked: false,
       },
       {
         id: 3,
         listName: "Grocery List",
         title: "Grapes",
-        completed: false,
+        isChecked: false,
       },
       {
         id: 4,
         listName: "Grocery List",
         title: "Bread",
-        completed: false,
+        isChecked: false,
       },
       {
         id: 5,
         listName: "Todo list",
         title: "Write a thank you letter to dad",
-        completed: false,
+        isChecked: false,
       },
     
       {
@@ -62,27 +62,44 @@ class App extends React.Component{
         title: "UXR Google",
         completed: false,
       },
-      {
-        name: "Elizabeth Nortman",
-        picture: profileimg,
-
-      }
     ],
+
+    newTodoItem: "",
+
     userInformation: [
       {
         name: "Elizabeth Nortman",
-        picture: {profileimg},
+        picture: profileimg,
       },
     ],
   };
 
-    onChangeText = (event) => {
-      this.setState({text:event.target.value});
+    // onChangeCheckbox = (event) => {
+    //   this.setState({ isChecked: event.target.checked });
+    // }
+
+    handleInputChange = (event) => {
+      this.setState({newTodoItem: event.target.value});
     }
+
+    handleNewTodoItem = () => {
+      let newTodoObj = {
+          id: "",
+          listName: "",
+          title: this.state.newTodoItem,
+          completed: false,
+      };
+
+      this.setState({
+        todoList: [...this.state.todoList, newTodoObj],
+        newTodoItem: "",
+      });
+    };
+
 
   render (){
     return(
-      <body className="page_container">
+      <div className="page_container">
       <Sidebar userInformation={this.state.userInformation}/>
 
         <div className="main_container">
@@ -93,10 +110,12 @@ class App extends React.Component{
           <div className="todolist">
             <input
               type="text"
+              value={this.state.newTodoItem}
+              onChange={this.handleInputChange}
               className="todolist_input"
               placeholder="Add new item"
             ></input>
-            <button type="submit" className="todolist_submitbutton">
+            <button type="submit" className="todolist_submitbutton" onClick={this.handleNewTodoItem}>
               Add
             </button>
             <div>
@@ -108,7 +127,7 @@ class App extends React.Component{
             </div>
           </div>
         </div>
-      </body>
+      </div>
     )
   };
 }
