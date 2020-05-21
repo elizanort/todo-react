@@ -23,52 +23,62 @@ import Sidebar from './components/Sidebar';
 // });
 
 class App extends React.Component{
-  state = [
-    {
-      id: 1,
-      listName: "Todo List",
-      title: "Workout",
-      completed: false,
-    },
-    {
-      id: 2,
-      listName: "Todo list",
-      title: "Complete ",
-      completed: false,
-    },
-    {
-      id: 3,
-      listName: "Grocery List",
-      title: "Grapes",
-      completed: false,
-    },
-    {
-      id: 4,
-      listName: "Grocery List",
-      title: "Bread",
-      completed: false,
-    },
-    {
-      id: 5,
-      listName: "Todo list",
-      title: "Write a thank you letter to dad",
-      completed: false,
-    },
-  
-    {
-      id: 6,
-      listName: "Application List",
-      title: "UXR Google",
-      completed: false,
-    },
-  ];
+  state = {
+    todoList: [
+      {
+        id: 1,
+        listName: "Todo List",
+        title: "Workout",
+        completed: false,
+      },
+      {
+        id: 2,
+        listName: "Todo list",
+        title: "Complete ",
+        completed: false,
+      },
+      {
+        id: 3,
+        listName: "Grocery List",
+        title: "Grapes",
+        completed: false,
+      },
+      {
+        id: 4,
+        listName: "Grocery List",
+        title: "Bread",
+        completed: false,
+      },
+      {
+        id: 5,
+        listName: "Todo list",
+        title: "Write a thank you letter to dad",
+        completed: false,
+      },
+    
+      {
+        id: 6,
+        listName: "Application List",
+        title: "UXR Google",
+        completed: false,
+      },
+      {
+        name: "Elizabeth Nortman",
+        picture: profileimg,
 
-  state = 
-    {
-      name: "Elizabeth Nortman",
-      picture: profileimg,
+      }
+    ],
+    userInformation: [
+      {
+        name: "Elizabeth Nortman",
+        picture: {profileimg},
+      },
+    ],
+  };
 
-    };
+    onChangeText = (event) => {
+      this.setState({text:event.target.value});
+    }
 
   render (){
     return(
@@ -91,7 +101,7 @@ class App extends React.Component{
             </button>
             <div>
               <ul>
-                {this.state.map((todoItem, index) => (
+                {this.state.todoList.map((todoItem, index) => (
                   <Todo todoItem={todoItem} key={index} />
                 ))}
               </ul>
