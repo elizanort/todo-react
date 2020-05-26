@@ -41,7 +41,7 @@ class App extends React.Component {
 
   onChangeCheckbox = (id) => {
     this.setState((state) => {
-      const newList = state.todoList.map((item) => {
+      const newList = this.state.todoList.map((item) => {
         if (item.id === id) {
           return {...item, completed: item.completed ? false : true};
         } else {
