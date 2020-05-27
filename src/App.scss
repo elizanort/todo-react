@@ -41,6 +41,34 @@ ul{
 
 }
 //Element Styles
+
+// .page_container{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100vh;
+//     background-color: $backgroundcolor-main;
+
+//    .hero_container{
+//     padding: 3rem;
+//     border: 1px solid $fontcolor-header;
+//     text-align: center;
+
+//     .time_text{
+//         padding: 1rem;
+//         font-size: 6rem;
+//     }
+//     .greeting_text{
+//         padding: 1rem;
+//     }
+
+//     .fa-smile{
+//         color: $fontcolor-header;
+        
+//     }
+//     }
+// } 
+
 .sidebar_container{
 
     .logo{
@@ -73,6 +101,9 @@ ul{
         }
         .newlist{
             background-color: rgb(255, 255, 255);
+        }
+        .fa-plus{
+            padding: 0rem 1rem;
         }
     }
 

@@ -19,6 +19,28 @@ class App extends React.Component {
     ],
   };
 
+    // const TODO_LIST_KEY = "myapp_todolist"
+    // const listStr = JSON.stringify (this.state.todoList)
+
+  componentDidUpdate(prevProps, prevState){
+    
+    if (this.state.todoList !== prevState.todoList) {
+      localStorage.setItem("myapp_todolist", JSON.stringify (this.state.todoList))
+    }
+  }
+
+  componentDidMount(){
+    let listString = localStorage.getItem("myapp_todolist");
+    if (listString){
+        this.setState({
+          todoList: JSON.parse(listString)
+        })
+      }
+    }
+  
+
+  
+
 
   handleInputChange = (event) => {
     this.setState({ newTodoItem: event.target.value });
@@ -40,7 +62,7 @@ class App extends React.Component {
 
 
   onChangeCheckbox = (id) => {
-    this.setState((state) => {
+    this.setState(() => {
       const newList = this.state.todoList.map((item) => {
         if (item.id === id) {
           return {...item, completed: item.completed ? false : true};
