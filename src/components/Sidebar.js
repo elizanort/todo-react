@@ -13,17 +13,13 @@ function Sidebar(props) {
 
         <div className="todo">
             <a href="www.google.com" className="todo_buttons todo">
-            To Do
-            </a>
-            <a href="www.google.com" className="todo_buttons grocery">
-            Grocery List
-            </a>
-            <a href="www.google.com" className="todo_buttons application">
-            Application
+            ToDo List
             </a>
             <a href="www.google.com" className="todo_buttons newlist">
-            New List
-            <i className="fas fa-plus"></i>
+            Dashboard
+            </a>
+            <a href="www.google.com" className="todo_buttons newlist">
+            Account
             </a>
         </div>
 
