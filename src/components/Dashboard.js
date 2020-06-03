@@ -7,9 +7,7 @@ class Dashboard extends Component {
   };
 
   componentDidMount() {
-    this.timerID = setInterval(
-        () => this.tick(), 
-        1000);
+    this.timerID = setInterval(() => this.tick(), 1000);
   }
 
   componentWillUnmount() {
@@ -24,13 +22,11 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className="page_container">
+      <div className="dashboard_container">
         <div className="hero_container">
           <h1 className="time_text">{this.state.date.toLocaleTimeString()} </h1>
-          <span>
-            <h2 className="greeting_text"> Hello, Beautiful</h2>
-            <i className="far fa-smile"></i>
-          </span>
+          <h2 className="greeting_text"> Hello, Beautiful</h2>
+          <i className="far fa-smile"></i>
         </div>
       </div>
     );
