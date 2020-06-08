@@ -181,14 +181,31 @@ ul{
         &_listitems{
             display: flex;
             align-items: center;
+            justify-content: space-between;
             padding: 1rem 2rem;
+            width: 80%;
             p{
                 padding: 0rem 1rem;
             }
-            .delete_button{
-                padding: .4rem;
-                border-radius: 30%;
+            .left_container{
+                display:flex;
+                align-items: center;
             }
+            .right_container{
+            
+                .delete_button, .itemDetail_button{
+                    margin: 0rem .5rem;
+                    border-radius: 30%;
+                    border: none;
+                    background: none;
+                
+                    &:hover{
+                        color: $fontcolor-header
+                }
+                }
+            }
+
+            
         }
     }
 }
