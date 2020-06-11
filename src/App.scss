@@ -39,44 +39,6 @@ ul{
 }
 //Element Styles
 
-.dashboard_container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: $backgroundcolor-main;
-
-   .hero_container{
-        padding: 3rem;
-        border: 1px solid $fontcolor-header;
-        text-align: center;
-
-        .time_text{
-            padding: 1rem;
-            font-size: 6rem;
-        }
-        .greeting_text{
-            padding: 1rem;
-        }
-
-        .fa-smile{
-            color: $fontcolor-header;
-        }
-    }
-
-    .cta_btn{
-        padding: .5rem;
-        margin: 1rem;
-        border: 1px solid $fontcolor-header;
-
-        &:hover{
-            color: white;
-            background-color: $fontcolor-header;
-        }
-    }
-
-} 
 
 
 .sidebar_container{

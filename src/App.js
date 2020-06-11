@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.scss";
+// import "./App.scss";
 // import profileimg from "./imgs/profile.svg";
 import TodoList from "./components/TodoList";
 import Dashboard from "./components/Dashboard";
@@ -20,7 +20,7 @@ class App extends React.Component {
 
   render() {
     return (
-        <div className="page_container">
+        <div style={styles.pageContainer}>
         <Sidebar userInformation={this.state.userInformation} />
         <Switch>
           <Route path="/account">
@@ -38,6 +38,13 @@ class App extends React.Component {
     );
   }
   
+}
+
+const styles = {
+  pageContainer: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 4fr',
+  } 
 }
 
 export default withRouter(App);
