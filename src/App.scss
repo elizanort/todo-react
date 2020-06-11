@@ -4,10 +4,7 @@ $fontcolor-primary: #393939;
 $backgroundcolor-main: #FFFFFF;
 
 
-// @font-face{
-//     font-family: 'Americana';
-//     src: local('Americana') url(./fonts/Americana.otf) format(opentype);
-// }
+
 
 @mixin headertext {
     font-family: 'Raleway', sans-serif;
@@ -80,6 +77,7 @@ ul{
     }
 
 } 
+
 
 .sidebar_container{
 
@@ -208,4 +206,43 @@ ul{
             
         }
     }
+}
+
+.details_pagewrapper{
+    display: flex;
+    flex-direction: column;
+   
+    
+    .back-btn{
+        padding: 1rem;
+
+        &:hover{
+            color: $fontcolor-header;
+        }
+    }
+    .form_header{
+        text-align: center;
+        padding: 1rem;
+    }  
+    .form_container{
+        display: flex;
+        justify-content: center;
+        .form_wrapper{
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            border: 1px solid $fontcolor-header;
+
+            .input{
+                padding: .5rem;
+
+                
+            
+            } 
+        }
+
+        
+        
+    }
+    
 }

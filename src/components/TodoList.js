@@ -95,7 +95,8 @@ class TodoList extends React.Component {
   
       this.setState({todoList: updatedList})
   
-    }
+    };
+  
   
     
   
