@@ -9,6 +9,7 @@ function Todo(props) {
       <input
         type="checkbox"
         onChange={() => props.onChangeCheckbox(props.todoItem.id)}
+        defaultChecked={props.todoItem.completed}
       ></input>
 
       <p
@@ -30,7 +31,7 @@ function Todo(props) {
           className="itemDetail_button"
           onClick={() => props.history.push("/todolist/" + props.todoItem.id)}
         >
-          view details
+          view feeedetails
         </button>
       </div>
     </li>

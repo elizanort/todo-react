@@ -34,8 +34,6 @@ class TodoList extends React.Component {
     
   
     
-  
-  
     handleInputChange = (event) => {
       this.setState({ newTodoItem: event.target.value });
     };
@@ -43,7 +41,7 @@ class TodoList extends React.Component {
     handleNewTodoItem = () => {
       let newTodoObj = {
         id: shortid.generate(),
-        itemDetails: "",
+        description: "",
         title: this.state.newTodoItem,
         completed: false,
         difficulty: "",
@@ -53,6 +51,22 @@ class TodoList extends React.Component {
         todoList: [...this.state.todoList, newTodoObj],
         newTodoItem: "",
       });
+    };
+
+    onUpdateItem = (formData) => {
+      this.setState((state) => {
+        const updatedItem = state.todoList.map((item) => {
+          if (item.id === formData.id) {
+            return {...formData};
+          } else {
+            return item;
+          }
+        });
+      
+          return{
+            todoList: updatedItem,
+          };
+       });
     };
   
   
@@ -90,7 +104,7 @@ class TodoList extends React.Component {
       return (
           <Switch>
             <Route path="/todolist/:itemId">
-              <TodoDetail todoList={this.state.todoList}/>
+              <TodoDetail todoList={this.state.todoList} onUpdateItem= {this.onUpdateItem} />
             </Route>
             <Route path="/todolist">
               <div className="main_container">

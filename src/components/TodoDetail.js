@@ -3,40 +3,26 @@ import { withRouter, Link } from "react-router-dom";
 
 class TodoDetail extends React.Component {
   state = {
-    todo: {...this.getTodoFromList()},
-
-    formData: {
-      title: "",
-      description: "",
-      checkbox: "",
-      difficulty: "",
-    },
+    formData: { ...this.getTodoFromList()},
   };
 
-  componentDidMount(_, prevState) {
-    if (prevState !== this.state) {
-      this.setState((state) => ({
-        formData: {
-          title: state.todo.title,
-          description: state.todo.description,
-          checkbox: state.todo.checkbox,
-          difficulty: state.todo.difficulty,
-        
-        },
-      }));
-    }
-  }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps !== this.props) {
-        console.log(this.props.todoList)
-      this.setState({ product: {...this.getTodoFromList()} });
+      this.setState({
+        formData: { ...this.getTodoFromList() },
+      });
     }
   }
 
   getTodoFromList() {
     const itemId = this.props.match.params.itemId;
-    return this.props.todoList.find((item) => item.id === itemId) || {};
+    return this.props.todoList.find((item) => item.id === itemId) || {
+        title: '',
+        description: '',
+        difficulty: '',
+        completed: false,
+      };
   }
 
   handleChange = (event) => {
@@ -47,13 +33,16 @@ class TodoDetail extends React.Component {
       value = event.target.value;
     }
     const name = event.target.name;
-  
-    this.setState(state=>({ formData: {...state.formData, [name]:value }}));
+
+    this.setState((state) => ({
+      formData: { ...state.formData, [name]: value },
+    }));
   };
 
-  submitHandler = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
     alert(`item has been updated!`);
+    this.props.onUpdateItem(this.state.formData);
   };
 
   render() {
@@ -63,7 +52,7 @@ class TodoDetail extends React.Component {
 
         <h1 className="form_header">Item Detail</h1>
 
-        <form className="form_container" onSubmit={this.submitHandler}>
+        <form className="form_container" onSubmit={this.handleSubmit}>
           <div className="form_item1 text">
             <label>
               Title
@@ -92,7 +81,9 @@ class TodoDetail extends React.Component {
               Completed
               <input
                 type="checkbox"
-                name="checkbox"
+                name="completed"
+                onChange={this.handleChange}
+                defaultChecked={this.state.formData.completed}
                 value={this.state.formData.checkbox}
               ></input>
             </label>
@@ -100,8 +91,8 @@ class TodoDetail extends React.Component {
           <div className="form_item4 text">
             <label>
               Task Difficulty
-              <select name="difficulty">
-                <option value="placeholder"></option>
+              <select name="difficulty" onChange={this.handleChange}>
+                <option value="default">Choose Difficulty</option>
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
