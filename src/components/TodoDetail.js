@@ -48,17 +48,17 @@ class TodoDetail extends React.Component {
 
   render() {
     return (
-      <div className="details_pagewrapper">
-        <Link to="/todolist" className="back-btn">
+      <div className="details_pagewrapper" style={styles.detailsPagewrapper}>
+        <Link to="/todolist" className="back-btn" style={styles.backBtn}>
           Back
         </Link>
 
         
 
-        <form className="form_container" onSubmit={this.handleSubmit}>
-          <div className="form_wrapper">
-            <h1 className="form_header">Item Detail</h1>
-            <div className="form_item1 input">
+        <form className="form_container" onSubmit={this.handleSubmit} style={styles.formContainer}>
+          <div className="form_wrapper" style={styles.formWrapper}>
+            <h1 className="form_header" style={styles.formHeader}>Item Detail</h1>
+            <div className="form_item1 input" styles={styles.input}>
               <label>
                 Title
                 <input
@@ -81,7 +81,7 @@ class TodoDetail extends React.Component {
                 ></textarea>
               </label>
             </div>
-            <div className="form_item3 input">
+            <div className="form_item3 input" styles={styles.input}>
               <label>
                 Completed
                 <input
@@ -93,7 +93,7 @@ class TodoDetail extends React.Component {
                 ></input>
               </label>
             </div>
-            <div className="form_item4 input">
+            <div className="form_item4 input" styles={styles.input}>
               <label>
                 Task Difficulty
                 <select name="difficulty" onChange={this.handleChange}>
@@ -113,5 +113,38 @@ class TodoDetail extends React.Component {
     );
   }
 }
+
+const styles = {
+  detailsPagewrapper:{
+    display: 'flex',
+    flexDirection: 'column',
+  },
+    
+    backBtn:{
+      padding: '1rem',
+    },
+
+    formHeader:{
+      textAlign: 'center',
+      padding: '1rem',
+    },
+
+    formContainer:{
+      display: 'flex',
+      justifyContent: 'center',
+    },
+
+        formWrapper:{
+          display: 'flex',
+          flexDirection: 'column',
+          padding: '1rem',
+          border: '1px solid #0b28da',
+        },
+            input:{
+                padding: '.5rem',
+            } 
+}   
+    
+
 
 export default withRouter(TodoDetail);

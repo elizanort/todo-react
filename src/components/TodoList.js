@@ -108,21 +108,23 @@ class TodoList extends React.Component {
             </Route>
             <Route path="/todolist">
               <div className="main_container">
-                <div className="header">
-                  <h1 className="header_h1">ToDo List</h1>
+                <div styles={styles.header} className="header">
+                  <h1 styles={styles.headerH1}className="header_h1">ToDo List</h1>
                 </div>
   
-                <div className="todolist">
+                <div styles={styles.todoList}className="todolist">
                   <input
                     type="text"
                     placeholder="Add new item"
                     value={this.state.newTodoItem}
                     onChange={this.handleInputChange}
                     className="todolist_input"
+                    styles={styles.todoListInput}
                   ></input>
                   <button
                     type="submit"
                     className="todolist_submitbutton"
+                    styles={styles.todoListSubmitbutton}
                     onClick={this.handleNewTodoItem}
                   >
                   Add
@@ -143,4 +145,65 @@ class TodoList extends React.Component {
     }
   }
 
+  const styles ={
+    header:{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-end',
+      background: 'rgb(245, 206, 206)',
+      height: '15rem',  
+    },
+
+    headerH1:{
+      padding: '.5rem 1rem',
+    },
+
+    todoList:{
+      padding: '1.5rem 1rem',
+      fontSize: '1.2rem',
+    },
+
+    todoListInput:{
+      height: '2rem',
+      width: '60%',
+      margin:'8 0rem',
+      padding: '.5rem',
+      },
+
+    todoListSubmitbutton:{
+      margin: '1rem',
+      height: '2rem',
+      padding: '0rem 2rem',
+      background: '#FFFFFF',
+      color: '#0b28da',
+      border: '1px solid #0b28da',
+    },
+
+    todoListListItems:{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: '1rem 2rem',
+      width: '80%',
+      
+      p:{
+      padding: '0rem 1rem',
+      }
+
+    },
+
+    
+    leftContainer:{
+          display:'flex',
+          alignItems: 'center',
+      },
+
+    rightContainerBtn:{
+      margin: '0rem .5rem',
+      borderRadius: '30%',
+      border: 'none',
+      background: 'none',
+              
+      }
+  }
   export default withRouter(TodoList);

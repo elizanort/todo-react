@@ -4,22 +4,22 @@ import { Link } from "react-router-dom";
 function Sidebar(props) {
   return (
     <div className="sidebar_container">
-      <div className="logo">
+      <div styles={styles.logo} className="logo">
         <h1>CHECKCHECK</h1>
       </div>
-      <div className="solidline"></div>
-      <div className="solidline"></div>
-      <div className="solidline"></div>
+      <div styles={styles.solidline}className="solidline"></div>
+      <div styles={styles.solidline}className="solidline"></div>
+      <div styles={styles.solidline}className="solidline"></div>
 
       <div className="todo">
         <Link to="/">
-          <div className="todo_buttons dashboard">Dashboard</div>
+          <div styles={styles.todoButtons}className="todo_buttons dashboard">Dashboard</div>
         </Link>
         <Link to="/todolist">
-          <div className="todo_buttons todo">ToDo List</div>
+          <div styles={styles.todoButtons}className="todo_buttons todo">ToDo List</div>
         </Link>
         <Link to="/account">
-          <div className="todo_buttons account">Account</div>
+          <div styles={styles.todoButtons}className="todo_buttons account">Account</div>
         </Link>
       </div>
 
@@ -36,6 +36,33 @@ function Sidebar(props) {
       </div> */}
     </div>
   );
+}
+
+const styles = {
+  logo:{
+    padding: '2rem',
+    fontFamily: 'Americana',
+  },
+
+  solidline:{
+    height: '.25rem',
+    backgroundColor: '#0b28da',
+    margin: '.25rem',
+  },
+
+  todo:{
+    display: 'flex',
+    flexDirection: 'column',
+  },
+
+  todoButtons:{
+    padding: '1rem',
+    textAlign: 'center',
+    border: '1px solid $#0b28da',
+    color: '#393939',
+  },
+
+ 
 }
 
 export default Sidebar;
