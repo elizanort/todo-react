@@ -1,0 +1,159 @@
+//Base Styles
+$fontcolor-header: #0b28da;
+$fontcolor-primary: #393939;
+$backgroundcolor-main: #FFFFFF;
+
+
+
+
+@mixin headertext {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+
+a{
+    text-decoration: none;
+    color: $fontcolor-primary;   
+}
+
+ul{
+    list-style-type: none;
+}
+
+
+
+//Layout Styles
+
+.page_container{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+}
+//Element Styles
+
+
+
+.sidebar_container{
+    .todo{
+    
+        &:hover{
+            transition: .3s;
+            color: $fontcolor-header;
+            border: 1px solid $fontcolor-header;
+        }
+    }
+}
+
+.main_container{
+    .header{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background: rgb(245, 206, 206);
+        height: 15rem;
+        &_h1{
+            padding: .5rem 1rem;
+        }
+    }
+
+    .todolist{
+        padding: 1.5rem 1rem;
+        font-size: 1.2rem;
+        &_input{
+            height: 2rem;
+            width: 60%;
+            margin:8 0rem;
+            padding: .5rem;
+        }
+
+        &_submitbutton{
+            margin: 1rem;
+            height: 2rem;
+            padding: 0rem 2rem;
+            background: $backgroundcolor-main;
+            color: $fontcolor-header;
+            border: 1px solid $fontcolor-header;
+            &:hover{
+                transition: .3s;
+                background-color: $fontcolor-header;
+                color: $backgroundcolor-main;
+                
+            }
+        }
+    
+        &_listitems{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            width: 80%;
+            p{
+                padding: 0rem 1rem;
+            }
+            .left_container{
+                display:flex;
+                align-items: center;
+            }
+            .right_container{
+            
+                .delete_button, .itemDetail_button{
+                    margin: 0rem .5rem;
+                    border-radius: 30%;
+                    border: none;
+                    background: none;
+                
+                    &:hover{
+                        color: $fontcolor-header
+                }
+                }
+            }
+
+            
+        }
+    }
+}
+
+.details_pagewrapper{
+    display: flex;
+    flex-direction: column;
+   
+    
+    .back-btn{
+        padding: 1rem;
+
+        &:hover{
+            color: $fontcolor-header;
+        }
+    }
+    .form_header{
+        text-align: center;
+        padding: 1rem;
+    }  
+    .form_container{
+        display: flex;
+        justify-content: center;
+        .form_wrapper{
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            border: 1px solid $fontcolor-header;
+
+            .input{
+                padding: .5rem;
+
+                
+            
+            } 
+        }   
+    }
+}
+
+    
