@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
+import styled from 'styled-components';
 
 class TodoDetail extends React.Component {
   state = {
@@ -48,17 +49,16 @@ class TodoDetail extends React.Component {
 
   render() {
     return (
-      <div className="details_pagewrapper" style={styles.detailsPagewrapper}>
-        <Link to="/todolist" className="back-btn" style={styles.backBtn}>
+      <DetailsWrapper>
+        <BackBtn to="/todolist">
           Back
-        </Link>
+        </BackBtn>
 
         
-
-        <form className="form_container" onSubmit={this.handleSubmit} style={styles.formContainer}>
-          <div className="form_wrapper" style={styles.formWrapper}>
-            <h1 className="form_header" style={styles.formHeader}>Item Detail</h1>
-            <div className="form_item1 input" styles={styles.input}>
+        <Form onSubmit={this.handleSubmit}>
+          <FormWrapper>
+            <FormHeader>Item Detail</FormHeader>
+            <InputWrapper>
               <label>
                 Title
                 <input
@@ -68,8 +68,8 @@ class TodoDetail extends React.Component {
                   onChange={this.handleChange}
                 ></input>
               </label>
-            </div>
-            <div className="form_item2 input">
+            </InputWrapper>
+            <InputWrapper>
               <label>
                 Description
                 <textarea
@@ -80,8 +80,8 @@ class TodoDetail extends React.Component {
                   onChange={this.handleChange}
                 ></textarea>
               </label>
-            </div>
-            <div className="form_item3 input" styles={styles.input}>
+            </InputWrapper>
+            <InputWrapper>
               <label>
                 Completed
                 <input
@@ -92,8 +92,8 @@ class TodoDetail extends React.Component {
                   value={this.state.formData.checkbox}
                 ></input>
               </label>
-            </div>
-            <div className="form_item4 input" styles={styles.input}>
+            </InputWrapper>
+            <InputWrapper>
               <label>
                 Task Difficulty
                 <select name="difficulty" onChange={this.handleChange}>
@@ -103,47 +103,48 @@ class TodoDetail extends React.Component {
                   <option value="hard">Hard</option>
                 </select>
               </label>
-            </div>
+            </InputWrapper>
             <div>
               <button type="submit">Update Changes</button>
             </div>
-          </div>
-        </form>
-      </div>
+          </FormWrapper>
+        </Form>
+    </DetailsWrapper>
     );
   }
 }
 
-const styles = {
-  detailsPagewrapper:{
-    display: 'flex',
-    flexDirection: 'column',
-  },
-    
-    backBtn:{
-      padding: '1rem',
-    },
+const DetailsWrapper = styled.div`
+display: flex;
+flex-direction: column;
+`;
 
-    formHeader:{
-      textAlign: 'center',
-      padding: '1rem',
-    },
+const BackBtn = styled(Link)`
+padding: 1rem;
+`;
 
-    formContainer:{
-      display: 'flex',
-      justifyContent: 'center',
-    },
+const Form = styled.form`
+display: flex;
+justify-content: center;
+`;
 
-        formWrapper:{
-          display: 'flex',
-          flexDirection: 'column',
-          padding: '1rem',
-          border: '1px solid #0b28da',
-        },
-            input:{
-                padding: '.5rem',
-            } 
-}   
+const FormWrapper=styled.div`
+display: flex,
+flex-direction: column,
+padding: 1rem,
+border: 1px solid #0b28da,
+`;
+
+const FormHeader=styled.h1`
+text-align: center,
+padding: 1rem,
+`;
+
+const InputWrapper = styled.div`
+padding: .5rem,
+`; 
+
+ 
     
 
 
