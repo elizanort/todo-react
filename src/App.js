@@ -4,7 +4,10 @@ import "./App.scss";
 import TodoList from "./components/TodoList";
 import Dashboard from "./components/Dashboard";
 import Sidebar from "./components/Sidebar";
-import Account from "./components/Account"
+import Account from "./components/Account";
+import Login from "./components/Login";
+import Registration from "./components/Registration";
+
 import { Route, Switch, withRouter } from "react-router-dom";
 
 class App extends React.Component {
@@ -16,23 +19,30 @@ class App extends React.Component {
         // picture: profileimg,
       },
     ],
-  }
+  };
 
   render() {
     return (
-        <div className="page_container">
-        <Sidebar userInformation={this.state.userInformation} />
+      <div className="page_container">
         <Switch>
-          <Route path="/account">
-            <Account />
+          <Route exact path="/register">
+            <Registration />
           </Route>
-          <Route path="/todolist">
-            <TodoList />
+          <Route exact path={["/", "/login"]}>
+            <Login />
           </Route>
-          <Route path="/">
-            <Dashboard />
-          </Route>
-          
+          <Sidebar userInformation={this.state.userInformation} />
+          <Switch>
+            <Route path="/account">
+              <Account />
+            </Route>
+            <Route path="/todolist">
+              <TodoList />
+            </Route>
+            <Route path="/">
+              <Dashboard />
+            </Route>
+          </Switch>
         </Switch>
       </div>
     );
