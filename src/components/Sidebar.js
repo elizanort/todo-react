@@ -12,7 +12,7 @@ function Sidebar(props) {
       <div className="solidline"></div>
 
       <div className="todo">
-        <Link to="/">
+        <Link to="/dashboard">
           <div className="todo_buttons dashboard">Dashboard</div>
         </Link>
         <Link to="/todolist">
