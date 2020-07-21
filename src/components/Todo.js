@@ -31,7 +31,7 @@ function Todo(props) {
           className="itemDetail_button"
           onClick={() => props.history.push("/todolist/" + props.todoItem.id)}
         >
-          view feeedetails
+          view details
         </button>
       </div>
     </li>

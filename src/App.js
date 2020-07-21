@@ -31,18 +31,20 @@ class App extends React.Component {
           <Route exact path={["/", "/login"]}>
             <Login />
           </Route>
-          <Sidebar userInformation={this.state.userInformation} />
-          <Switch>
-            <Route path="/account">
-              <Account />
-            </Route>
-            <Route path="/todolist">
-              <TodoList />
-            </Route>
-            <Route path="/">
-              <Dashboard />
-            </Route>
-          </Switch>
+          <Route>
+            <Sidebar userInformation={this.state.userInformation} />
+            <Switch>
+              <Route path="/account">
+                <Account />
+              </Route>
+              <Route path="/todolist">
+                <TodoList />
+              </Route>
+              <Route path="/">
+                <Dashboard />
+              </Route>
+            </Switch>
+          </Route>
         </Switch>
       </div>
     );

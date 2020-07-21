@@ -59,6 +59,7 @@ class TodoDetail extends React.Component {
               <input
                 type="text"
                 name="title"
+                placeholder="MM"
                 value={this.state.formData.title}
                 onChange={this.handleChange}
               ></input>
